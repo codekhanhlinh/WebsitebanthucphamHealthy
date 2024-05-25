@@ -1,0 +1,186 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="_7_NguyenTranKhanhLinh_WebsitebanthucphamHealthy_5702.Master_Page.MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trang chủ</title>
+  <link rel="stylesheet" href="../Styles/Style.css" />
+    <style>
+        #congCuDropdown li a {
+            text-decoration: none;
+            color:black;
+        }
+         #btnTimKiem {
+        background-image: url('/Images/Logo_Icon/search-30.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left:10px;
+        height:38px;
+        width:35px;
+        border:none;
+        background-color:white;
+        vertical-align:middle;
+    }
+
+    #txtTenSanPham{
+        height:30px;
+        width:250px;
+        border:solid 2px;
+        border-color:#8EB963;
+    }
+    </style>
+</head>
+<body>
+  <header> 
+    <div class="header">
+         <div class="header-items">
+              <!-- Thông tin mở cửa -->  
+              <div class="items item-left">
+                    <img src="../Images/Logo_Icon/clock-35.png" alt="Clock">
+                    Mở cửa: 09:00 - 18:00  
+              </div>
+              <div class="items item-right">
+                    <a href="../Web_Form/DangNhap.aspx">
+                    <img src="../Images/Logo_Icon/user-35.png"/></a>
+                  <!-- Liên kết bản đồ -->
+                  <a href="javascript:openGoogleMaps()">
+                    <img src="../Images/Logo_Icon/map-35.png" alt="Map icon"></a>
+                  <!-- Liên kết Facebook -->
+                  <a href="javascript:openFacebook()">
+                      <img src="../Images/Logo_Icon/facebook-35.png" alt="Facebook icon"></a>
+             </div>
+        </div >
+        <table class="header-bar">
+        <tr>
+            <td>
+                <img src="../Images/Logo_Icon/logo-Cuahang130px.png" />
+            </td>
+            <td>
+                <div class="buttons">
+                  <button onclick="goToPage('/Web_Form/TrangChu.aspx')">Trang chủ</button>
+                  <button onclick="goToPage('/Web_Form/GioiThieu.aspx')">Giới thiệu</button> 
+                  <%--<button onclick="goToPage('/Web_Form/SanPham.aspx')" onmouseover="highlightButton(this)" onmouseout="unhighlightButton(this)">Sản phẩm</button>--%>
+                  <button onclick="goToPage('/Web_Form/SanPham.aspx')">Sản phẩm</button>
+                  <div class="dropdown">
+                    <button class="btcongcu" onclick="toggleDropdown()">Công cụ</button>
+                    <ul class="dropdown-menu" id="congCuDropdown">
+                        <li><a href="/Web_Form/TinhBMI.aspx">Công cụ BMI</a></li>
+                        <li><a href="/Web_Form/TinhCanNang.aspx">Công cụ tính cân nặng chuẩn</a></li>
+                        <li><a href="/Web_Form/TinhBMRVaTDEE.aspx">Công Cụ Tính BMR Và TDEE</a></li>
+                    </ul>
+                  </div>
+                  <button>Blog giảm cân</button>
+                </div>
+                <div>
+         
+                </div>
+            </td>
+        </tr>
+      </table>
+        <br />
+    </div>
+  </header>
+    <form runat="server">
+        <div style="margin-left: 1000px; margin-top:10px">
+            <asp:TextBox ID="txtTenSanPham" runat="server" placeholder="Nhập tên sản phẩm"></asp:TextBox>
+            <asp:Button ID="btnTimKiem" runat="server"/>
+        </div>
+        <br />
+    <main>
+         <div>
+            <asp:ContentPlaceHolder ID="Content1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div>
+             <asp:ContentPlaceHolder ID="Content2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </main>
+    </form>
+
+  <footer>
+      <table class="footer-table">
+        <tr>
+            <td>
+              <div class="title">
+                <h3>About</h3>
+                  </div>            
+                    <div class="about-footer">
+                        <p>Chuyên cung cấp các món ăn theo hướng ăn kiêng ít tinh bột, ít đường</p>
+                            <img src="../Images/Logo_Icon/location-35.png" align="middle"/> 57/11/11 Cách Mạng Tháng 8, Quận 10, TP. Hồ Chí Minh<br />
+                            <img src="../Images/Logo_Icon/phone2-35.png" align="middle"  /> 0911 111 839 <br />
+                            <img src="../Images/Logo_Icon/email2-35.png" align="middle" /> hemhealthy@gmail.com           
+                    </div>
+            </td>
+
+            <td>
+              <div class="title">
+                <h3 class="hd3">Find us</h3> 
+                   <div class="findus-footer">
+                        <a href="javascript:openFacebook()"><img src="../Images/Logo_Icon/facebook2-35.png" alt="Facebook icon"></a>
+                        <a href="javascript:openInstagram()"><img src="../Images/Logo_Icon/instagram2-35.png" alt="Instagram icon"></a>
+                    </div>
+              </div>                
+            </td>
+            <td>
+                <img src="../Images/Logo_Icon/logo-Cuahang130px.png" />
+            </td>
+       </tr>
+    </table>
+  
+  <%--</div>--%>
+
+<%--  <div class="copyright">
+    <p>Copyright © 2023 - Bản quyền thuộc về .....</p> 
+  </div>--%>
+
+  </footer>
+  <script>
+      function openGoogleMaps() {
+          window.location.href = "https://maps.app.goo.gl/xCjK3j5KbDKQXcM5A";
+      }
+
+      function openFacebook() {
+          window.location.href = "https://www.facebook.com/hemhealthyfood";
+      }
+
+      function openInstagram() {
+          window.location.href = "https://www.instagram.com/hemhealthyfood/";
+      }
+
+      function goToPage(url) {
+          window.location.href = url;
+      }
+
+      // Lấy tham chiếu đến các phần tử trong DOM
+      var button = document.querySelector('.btcongcu');
+      var dropdownMenu = document.querySelector('.dropdown-menu');
+
+      // Gán sự kiện nhấp chuột cho nút "Công cụ"
+      button.addEventListener('click', function () {
+          // Kiểm tra trạng thái hiển thị của dropdown menu
+          var isDisplayed = dropdownMenu.style.display === 'block';
+
+          // Nếu dropdown menu đang hiển thị, ẩn nó; nếu không, hiển thị nó
+          if (isDisplayed) {
+              dropdownMenu.style.display = 'none';
+          } else {
+              dropdownMenu.style.display = 'block';
+          }
+      });
+
+      // Nếu bạn muốn dropdown menu tự đóng khi nhấp chuột bên ngoài
+      document.addEventListener('click', function (event) {
+          var target = event.target;
+
+          // Kiểm tra xem người dùng đã nhấp chuột vào ngoài dropdown menu hay không
+          var clickedOutside = !dropdownMenu.contains(target) && !button.contains(target);
+
+          // Nếu người dùng nhấp chuột bên ngoài dropdown menu, ẩn menu
+          if (clickedOutside) {
+              dropdownMenu.style.display = 'none';
+          }
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+﻿
+
+.header-items {
+    height: 40px;
+    width: auto;
+    border-bottom: 1px solid #DDD02F;
+    font-size: 18px;
+    align-items:center;
+}
+
+.item-left {
+    min-width: 200px;
+    float: left;
+    font-family: Bahnschrift;
+}
+
+.item-right {
+    /*max-height: 300px;*/
+    float: right;
+}
+
+/*Căn giữa hình ảnh theo chiều cao trong item-left*/
+.item-left img {
+    vertical-align: middle;
+}
+
+.item-right img {
+    margin-right: 10px; /*Đặt khoảng cách giữa hai ảnh */
+}
+
+.header-bar {
+    padding: 15px;
+    height: 150px;
+    border-top: 2px solid #009900;
+    width: 1371px;
+    border-bottom: 2px solid #009900;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px; /*border: 2px solid #009900;*/
+    margin-top: 10px;
+    border-left-style: none;
+    border-left-color: inherit;
+    border-left-width: medium;
+    border-right-style: none;
+    border-right-color: inherit;
+    border-right-width: medium;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+    .header-bar img {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .header-bar .button-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .header-bar .button-wrapper button {
+            margin: 0 5px;
+        }
+
+.buttons {
+    text-align:right;
+}
+    .buttons button {
+        width: 150px;
+    }
+
+    .buttons button {
+        border: none;
+        font-family: Bahnschrift;
+        font-size: 20px;
+        background-color: transparent;
+        cursor: pointer;
+        text-decoration: none; /* Loại bỏ gạch chân mặc định */
+    }
+        .buttons button:hover {
+            text-decoration: underline; /* Hiển thị gạch chân khi di chuột vào */
+            text-decoration-color: #009900;
+        }
+        /*.buttons button.highlight {
+            background-color: #e9e9e9;*/ /* Màu nền khi di chuột vào */
+        /*}*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width:150px;
+    text-align:center;
+}
+
+.btcongcu {
+    padding: 8px 0;
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f9f9f9;
+    border: 1px none #4B8D48;
+    font-family: Bahnschrift;
+    width: 210px;
+    text-align: left;
+}
+
+    .dropdown-menu li {
+        padding: 8px 16px;
+        cursor: pointer;
+        border-bottom: 2px solid #4B8D48;
+    }
+
+        .dropdown-menu li:hover {
+            background-color: #E9FFCA;
+        }
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 1476px;
+}
+
+.about-footer {
+    font-family: Bahnschrift;
+}
+
+.footer-table {
+   /* border-collapse: separate;
+    border-spacing: 5px;
+    display: flex;*/
+
+    height: 150px;
+    border-right: none;
+    padding-right: 15px;
+    border-top: 2px solid #009900;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    margin: 10px;
+    border-left: none;
+    width: 1370px;
+    padding-top: 15px;
+    border-bottom: 2px solid #009900;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    text-align:center;
+    /*border: 2px solid #009900;*/
+    margin: 0 auto;
+    /*margin-top: 10px;*/
+}
+
+    .footer-table td {
+        padding: 0 20px;
+    }
+
+.footer-content {
+    display: inline-block;
+}
+
+.title {
+    margin-top: 2px;
+    /*position: relative;*/
+}
+
+.findus-footer {
+    text-align: justify-all;
+}
+
+.hd3 {
+    padding-bottom: 10px;
+    text-align: revert-layer;
+}
+
+.HDDH {
+    text-align: center;
+    font-family: Bahnschrift;
+    font-size: 30px;
+    color: green;
+}
+
+.fixed-datalist {
+    margin-bottom:2px;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,0 +1,243 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SanPham.master.cs" Inherits="_7_NguyenTranKhanhLinh_WebsitebanthucphamHealthy_5702.Master_Page.SanPham" %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trang chủ</title>
+  <link rel="stylesheet" href="../Styles/Style.css" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 1350px;
+        }
+        .auto-style2 {
+            width: 150px;
+            height:80px;
+            font-family:Bahnschrift;
+           
+        }
+        .button-link {
+            text-decoration: none;
+            color:black;
+            line-height: 3; 
+        }
+        .button-link:active {
+            color: #4B8D48; /* Thay đổi màu sắc khi liên kết được nhấp vào */
+        }
+        
+        #congCuDropdown li a {
+            text-decoration: none;
+            color:black;
+        }
+
+         .div-container {
+        margin-right: 25px;
+        border: 1px solid #8EB963;
+        padding: 45px;
+        padding-bottom: 1px;
+        padding-top: 1px;
+        border-radius: 1px;
+        transition: all 0.3s; /* Tạo hiệu ứng mượt khi hover */
+        font-size:18px;
+    }
+
+    .div-container:hover {
+        background-color: #8EB963; /* Thay đổi màu nền khi hover */
+       /*text-decoration:underline;
+       text-decoration-color:#8EB963;*/
+    }
+    .sl-giohang{
+        font-family:Bahnschrift;
+        text-decoration:none;
+        position:absolute; 
+        top: 0; 
+        left: 99%;
+    }
+    #btnTimKiem {
+        background-image: url('/Images/Logo_Icon/search-30.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left:10px;
+        height:38px;
+        width:35px;
+        border:none;
+        background-color:white;
+        vertical-align:middle;
+    }
+
+    #txtTenSanPham{
+        height:30px;
+        width:250px;
+        border:solid 2px;
+        border-color:#8EB963;
+    }
+    </style>
+</head>
+<body>
+ <form id="form1" runat="server">
+      <%--<form runat="server">--%>
+  <header> 
+    <div class="header">
+         <div class="header-items">
+              <!-- Thông tin mở cửa -->  
+              <div class="items item-left">
+                    <img src="../Images/Logo_Icon/clock-35.png" alt="Clock">
+                    Mở cửa: 09:00 - 18:00  
+              </div>
+              <div class="items item-right">
+                  &nbsp;<img src="../Images/Logo_Icon/user-35.png" />
+                  <!-- Liên kết bản đồ -->
+                  <a href="javascript:openGoogleMaps()">
+                    <img src="../Images/Logo_Icon/map-35.png" alt="Map icon"></a>
+                  <!-- Liên kết Facebook -->
+                  <a href="javascript:openFacebook()">
+                      <img src="../Images/Logo_Icon/facebook-35.png" alt="Facebook icon"></a>
+                  <a href="../Web_Form/GioHang.aspx">
+                     <img ID="imgCart" runat="server" src="../Images/Logo_Icon/shoppingcart-37.png"/>            
+                      <asp:Label ID="lblSoLuong" runat="server" CssClass="sl-giohang"></asp:Label>
+                 </a></div>
+        </div >
+        <table class="header-bar">
+        <tr>
+            <td>
+                <img src="../Images/Logo_Icon/logo-Cuahang130px.png" />
+            </td>
+            <td>
+                <div class="buttons">
+                  <button onclick="gotopage('../Web_Form/TrangChu.aspx')">Trang chủ</button>
+                  <button onclick="goToPage('/Web_Form/GioiThieu.aspx')">Giới thiệu</button> 
+                  <button onclick="gotopage('../Web_Form/SanPham.aspx')">Sản phẩm</button>
+                  <div class="dropdown">
+                    <button class="btcongcu" onclick="toggleDropdown()">Công cụ</button>
+                    <ul class="dropdown-menu" id="congCuDropdown">
+                        <li><a href="/Web_Form/TinhBMI.aspx">Công cụ BMI</a></li>
+                        <li><a href="/Web_Form/TinhCanNang.aspx">Công cụ tính cân nặng chuẩn</a></li>
+                        <li><a href="/Web_Form/TinhBMRVaTDEE.aspx">Công Cụ Tính BMR Và TDEE</a></li>
+                    </ul>
+                  </div>
+                  <button>Blog giảm cân</button>
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+  </header>
+  
+    <main>
+        <div style="float: right; margin-right: 10px; margin-top:10px">
+            <asp:TextBox ID="txtTenSanPham" runat="server" placeholder="Nhập tên sản phẩm"></asp:TextBox>
+            <asp:Button ID="btnTimKiem" runat="server" OnClick="btnTimKiem_Click" />
+        </div>
+         <div>
+             <table class="auto-style1" align="center">
+                <tr>
+                    <td class="auto-style2">
+                        <asp:DataList ID="DataList1" runat="server" OnItemCommand="DLDanhMuc_ItemCommand" RepeatDirection="Horizontal">
+                            <ItemTemplate>
+                                <div class="div-container">
+                                    <asp:HyperLink ID="hldanhmuc" runat="server" NavigateUrl='<%# "/Web_Form/SanPham.aspx?maloai=" + Eval("MaLSP") %>' 
+                                        Text='<%# Eval("TenLSP") %>' CommandName="DanhMucClick" CommandArgument='<%# Eval("MaLSP") %>' CssClass="button-link" style="text-align: center;"></asp:HyperLink>
+                                </div>
+                            </ItemTemplate>
+                        </asp:DataList>
+                    </td>
+                </tr>
+            </table>
+            <table class="auto-style1" align="center">
+                <tr>
+                    <td>
+                        <asp:ContentPlaceHolder ID="Content1" runat="server"></asp:ContentPlaceHolder>
+                        <br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </main>
+
+  <footer>
+      <table class="footer-table">
+        <tr>
+            <td>
+              <div class="title">
+                <h3>About</h3>
+                  </div>            
+                    <div class="about-footer">
+                        <p>Chuyên cung cấp các món ăn theo hướng ăn kiêng ít tinh bột, ít đường</p>
+                            <img src="../Images/Logo_Icon/location-35.png" align="middle"/> 57/11/11 Cách Mạng Tháng 8, Quận 10, TP. Hồ Chí Minh<br />
+                            <img src="../Images/Logo_Icon/phone2-35.png" align="middle"  /> 0911 111 839 <br />
+                            <img src="../Images/Logo_Icon/email2-35.png" align="middle" /> hemhealthy@gmail.com             
+
+                    </div>
+            </td>
+
+            <td>
+              <div class="title">
+                <h3 class="hd3">Find us</h3> 
+                   <div class="findus-footer">
+                    <a href="javascript:openFacebook()"><img src="../Images/Logo_Icon/facebook2-35.png" alt="Facebook icon"></a>
+                    <a href="javascript:openInstagram()"><img src="../Images/Logo_Icon/instagram2-35.png" alt="Instagram icon"></a>
+                    </div>
+              </div>                
+            </td>
+            <td>
+            <img src="../Images/Logo_Icon/logo-Cuahang130px.png" />
+            </td>
+       </tr>
+    </table>
+  <%--</div>--%>
+
+<%--  <div class="copyright">
+    <p>Copyright © 2023 - Bản quyền thuộc về .....</p> 
+  </div>--%>
+
+  </footer>
+         <%-- </form>--%>
+  <script>
+      function openGoogleMaps() {
+          window.location.href = "https://maps.app.goo.gl/xCjK3j5KbDKQXcM5A";
+      }
+
+      function openFacebook() {
+          window.location.href = "https://www.facebook.com/hemhealthyfood";
+      }
+
+      function openInstagram() {
+          window.location.href = "https://www.instagram.com/hemhealthyfood/";
+      }
+      function gotopage(url) {
+          console.log("Button clicked. Navigating to:", url);
+          window.location.href = url;
+      }
+
+      // Lấy tham chiếu đến các phần tử trong DOM
+      var button = document.querySelector('.btcongcu');
+      var dropdownMenu = document.querySelector('.dropdown-menu');
+
+      // Gán sự kiện nhấp chuột cho nút "Công cụ"
+      button.addEventListener('click', function () {
+          // Kiểm tra trạng thái hiển thị của dropdown menu
+          var isDisplayed = dropdownMenu.style.display === 'block';
+
+          // Nếu dropdown menu đang hiển thị, ẩn nó; nếu không, hiển thị nó
+          if (isDisplayed) {
+              dropdownMenu.style.display = 'none';
+          } else {
+              dropdownMenu.style.display = 'block';
+          }
+      });
+
+      // Nếu bạn muốn dropdown menu tự đóng khi nhấp chuột bên ngoài
+      document.addEventListener('click', function (event) {
+          var target = event.target;
+
+          // Kiểm tra xem người dùng đã nhấp chuột vào ngoài dropdown menu hay không
+          var clickedOutside = !dropdownMenu.contains(target) && !button.contains(target);
+
+          // Nếu người dùng nhấp chuột bên ngoài dropdown menu, ẩn menu
+          if (clickedOutside) {
+              dropdownMenu.style.display = 'none';
+          }
+      });
+  </script>
+</form>
+</body>
+</html>
+

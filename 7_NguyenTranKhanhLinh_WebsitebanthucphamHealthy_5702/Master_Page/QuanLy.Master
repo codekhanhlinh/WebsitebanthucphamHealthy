@@ -1,0 +1,147 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="QuanLy.master.cs" Inherits="_7_NguyenTranKhanhLinh_WebsitebanthucphamHealthy_5702.Master_Page.QuanLy" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+   <%-- <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>--%>
+    <style>
+        .pnl_1{
+            background-color:#009900;
+            font-family:Bahnschrift;
+            height:30px;
+        }
+
+        table {
+        /*width: 100%;*/
+        table-layout: fixed;
+        }
+            .fixed-height-row {
+                height: 500px; /* Đặt chiều cao cố định cho hàng */
+                width:230px;
+                background:#E9FFCA;
+            }
+
+        a.btn_ql{           
+            width:200px;
+            height:50px;
+           /* text-align: right; *//* Căn lề văn bản về phía phải */
+            padding-right:5px; /* Tăng khoảng cách giữa văn bản và mép phải của button */
+            text-decoration:none;
+            color:#009900;
+            font-size:23px;
+        }
+
+       .btn_ql img{
+           margin-right:10px;
+           margin-left:10px;
+       }
+
+       .div_ql img{
+           vertical-align:middle;
+       }
+
+       .div_ql{
+           margin-top:20px;
+           text-decoration:none;
+           font-family:Bahnschrift;
+       }
+        .auto-style1 {
+            float: left;
+            width: 230px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:Panel ID="Panel1" runat="server" CssClass="pnl_1">
+                <asp:Menu ID="Menu1" runat="server">
+                    <StaticMenuItemStyle ForeColor="Black" />
+                    <Items>
+                        <asp:MenuItem Text="Hệ thống">
+                            <asp:MenuItem NavigateUrl="#" Text="Thoát" />
+                            <asp:MenuItem NavigateUrl="#" Text="Đăng xuất" />
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </asp:Panel>
+
+            <table>
+                <tr>
+                    <td class="fixed-height-row">
+                        <div style="margin-top:10px;" class="auto-style1">
+                            <!-- Nút thứ nhất -->
+                            <div class="div_ql">
+                            <a href="QL_KhachHang.aspx" class="btn_ql"> 
+                                <img src="../Images/Logo_Icon/customer-35.png"/>Khách hàng
+                            </a>
+                            </div>
+                           
+                             <div class="div_ql">
+                            <a href="QLNhanVien.aspx" class="btn_ql"> 
+                                <img src="../Images/Logo_Icon/staff-35.png"/>Nhân viên
+                            </a>
+                            </div>
+
+                             <div class="div_ql">
+                            <a href="QLNhaCungCap" class="btn_ql"> 
+                                <img src="../Images/Logo_Icon/delivery-35.png"/>Nhà cung cấp
+                            </a>
+                            </div>
+
+                             <div class="div_ql">
+                            <a href="QLHDB_CTHDB" class="btn_ql"> 
+                                <img src="../Images/Logo_Icon/order-35.png"/>Hóa đơn bán
+                            </a>
+                            </div>
+
+                             <div class="div_ql">
+                            <a href="#" class="btn_ql"> 
+                                <img src="../Images/Logo_Icon/item-product-35.png"/>Loại SP
+                            </a>
+                            </div> 
+
+                             <div class="div_ql">
+                            <a href="QLSanPham" class="btn_ql"> 
+                                <img src="../Images/Logo_Icon/food-receiver-35.png"/>Sản phẩm
+                             </a>
+                            </div>
+
+                             <div class="div_ql">
+                            <a href="QLKhoNL" class="btn_ql"> 
+                                <img src="../Images/Logo_Icon/warehouse-35.png"/>Kho NL
+                            </a>
+                            </div>
+
+                            <div class="div_ql">
+                            <a href="QLPN_CTPN" class="btn_ql"> 
+                                <img src="../Images/Logo_Icon/import-35.png"/>Phiếu nhập
+                            </a>
+                            </div>
+
+                            <div class="div_ql">
+                            <a href="ThongKe" class="btn_ql"> 
+                                <img src="../Images/Logo_Icon/statistics-35.png"/>Thống kê
+                            </a>
+                            </div>
+                            
+                           
+                            
+
+                        </div>
+                    </td>
+                    <td>
+                        <div style="width:1120px; margin-left:10px;">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </td>
+                    </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
